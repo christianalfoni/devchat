@@ -1,8 +1,7 @@
-import { injectable } from "impact-app";
 import { Firebase } from "./Firebase";
-
-import { signal } from "signalit";
+import { Signal, signal } from "signalit";
 import { GithubAuthProvider, User, signInWithPopup } from "firebase/auth";
+import { Disposable, injectable } from "../impact-app-test";
 
 export type AuthenticatorState =
   | {
@@ -24,10 +23,8 @@ export type AuthenticatorState =
     };
 
 @injectable()
-export class Authenticator {
-  private _state = signal<AuthenticatorState>({
-    status: "AUTHENTICATING",
-  });
+export class Authenticator extends Disposable {
+  private _state: Signal<AuthenticatorState>;
   get state() {
     return this._state.value;
   }
@@ -35,7 +32,12 @@ export class Authenticator {
     return this._state.value.status;
   }
   constructor(private _firebase: Firebase) {
-    _firebase.auth.onAuthStateChanged(this.authenticate.bind(this));
+    super();
+    const user = _firebase.getUser();
+    this._state = signal(
+      user ? { status: "AUTHENTICATED", user } : { status: "AUTHENTICATING" }
+    );
+    this.addDisposable(_firebase.onAuthChanged(this.authenticate.bind(this)));
   }
   private authenticate(maybeUser: User | null) {
     if (maybeUser) {

@@ -1,15 +1,16 @@
-import { inject, injectable } from "impact-app";
+import { Disposable, inject, injectable } from "../impact-app-test";
 import { Signal, signal } from "signalit";
-import { Firebase } from "./Firebase";
+import { Firebase } from "../global-services/Firebase";
 import type { User } from "firebase/auth";
 
 @injectable()
-export class Session {
+export class Session extends Disposable {
   private _user: Signal<User>;
   get user() {
     return this._user.value;
   }
-  constructor(@inject("USER") user: User, private _firebase: Firebase) {
+  constructor(@inject("user") user: User, private _firebase: Firebase) {
+    super();
     this._user = signal(user);
   }
   signOut() {}

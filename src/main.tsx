@@ -1,13 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.tsx";
+import { Authentication } from "./components/Authentication.tsx";
+import { App } from "./components/App.tsx";
 import "./index.css";
-import { InjectionProvider } from "impact-app";
+import { GlobalServicesProvider } from "./global-services/index.tsx";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <InjectionProvider>
-      <App />
-    </InjectionProvider>
+    <GlobalServicesProvider>
+      <Authentication>
+        <App />
+      </Authentication>
+    </GlobalServicesProvider>
   </React.StrictMode>
 );

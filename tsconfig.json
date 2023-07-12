@@ -20,7 +20,13 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "paths": {
+      "$components/*": ["./src/components/*"],
+      "$ui-components/*": ["./src/ui-components/*"],
+      "$global-services/*": ["./src/global-services/*"],
+      "$services/*": ["./src/services/*"]
+    }
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
