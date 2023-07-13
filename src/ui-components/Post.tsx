@@ -1,17 +1,3 @@
-/*
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
-*/
 import { Fragment, useState } from "react";
 import {
   FaceFrownIcon,
@@ -24,6 +10,7 @@ import {
 } from "@heroicons/react/20/solid";
 import { Listbox, Transition } from "@headlessui/react";
 import { classNames } from "../utils/classNames";
+import { Editor } from "./Editor";
 
 const moods = [
   {
@@ -88,6 +75,8 @@ export function Post({ avatarUrl }: { avatarUrl: string }) {
             <label htmlFor="comment" className="sr-only">
               Add your comment
             </label>
+            <Editor />
+            {/*
             <textarea
               rows={3}
               name="comment"
@@ -96,6 +85,7 @@ export function Post({ avatarUrl }: { avatarUrl: string }) {
               placeholder="Add your comment..."
               defaultValue={""}
             />
+  */}
 
             {/* Spacer element to match the height of the toolbar */}
             <div className="py-2" aria-hidden="true">
