@@ -7,7 +7,7 @@ import { useState } from "react";
 import { observer } from "signalit";
 import { useInject } from "../impact-app-test";
 import { Session } from "$services/Session";
-import { Post } from "$ui-components/Post";
+import { PostComment } from "$editor/PostComment";
 
 export function App() {
   using _ = observer()
@@ -22,7 +22,7 @@ export function App() {
         <SearchHeader setSidebarOpen={setSidebarOpen} />
         <main className="lg:pr-96">
           <header className="border-b border-white/5 px-4 py-4 sm:px-6 sm:py-6 lg:px-8">
-            <Post avatarUrl={session.user.photoURL} />
+            <PostComment avatarUrl={session.user.photoURL} />
           </header>
           <Feed />
           <FollowersFeed />

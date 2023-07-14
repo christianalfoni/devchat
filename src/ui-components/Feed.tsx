@@ -1,9 +1,5 @@
-import { Fragment } from "react";
-import { Menu, Transition } from "@headlessui/react";
-
-import { ChevronRightIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
+import { ChevronRightIcon } from "@heroicons/react/20/solid";
 import { classNames } from "../utils/classNames";
-import { Post } from "./Post";
 
 const statuses = {
   offline: "text-gray-500 bg-gray-100/10",

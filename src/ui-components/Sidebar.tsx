@@ -4,6 +4,7 @@ import {
   Cog6ToothIcon,
   FolderIcon,
   GlobeAltIcon,
+  HomeIcon,
   ServerIcon,
   SignalIcon,
   XMarkIcon,
@@ -11,14 +12,7 @@ import {
 import { Fragment } from "react";
 import { classNames } from "../utils/classNames";
 
-const navigation = [
-  { name: "Projects", href: "#", icon: FolderIcon, current: false },
-  { name: "Deployments", href: "#", icon: ServerIcon, current: true },
-  { name: "Activity", href: "#", icon: SignalIcon, current: false },
-  { name: "Domains", href: "#", icon: GlobeAltIcon, current: false },
-  { name: "Usage", href: "#", icon: ChartBarSquareIcon, current: false },
-  { name: "Settings", href: "#", icon: Cog6ToothIcon, current: false },
-];
+const navigation = [{ name: "Home", href: "#", icon: HomeIcon, current: true }];
 const teams = [
   { id: 1, name: "Planetaria", href: "#", initial: "P", current: false },
   { id: 2, name: "Protocol", href: "#", initial: "P", current: false },
@@ -53,7 +47,7 @@ export function Sidebar({
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="fixed inset-0 bg-gray-900/80" />
+            <div className="fixed inset-0 bg-gray-50" />
           </Transition.Child>
 
           <div className="fixed inset-0 flex">
@@ -173,9 +167,9 @@ export function Sidebar({
       </Transition.Root>
 
       {/* Static sidebar for desktop */}
-      <div className="hidden xl:fixed xl:inset-y-0 xl:z-50 xl:flex xl:w-72 xl:flex-col">
+      <div className="hidden xl:fixed xl:inset-y-0 xl:z-50 xl:flex xl:w-72 xl:flex-col border-r border-gray-300">
         {/* Sidebar component, swap this element with another sidebar if you like */}
-        <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-black/10 px-6 ring-1 ring-white/5">
+        <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-white px-6 ring-1 ring-white/5">
           <div className="flex h-16 shrink-0 items-center">
             <img
               className="h-8 w-auto"
@@ -193,7 +187,7 @@ export function Sidebar({
                         href={item.href}
                         className={classNames(
                           item.current
-                            ? "bg-gray-800 text-white"
+                            ? "bg-gray-100 text-gray-900"
                             : "text-gray-400 hover:text-white hover:bg-gray-800",
                           "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
                         )}

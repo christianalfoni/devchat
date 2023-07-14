@@ -25,7 +25,8 @@
       "$components/*": ["./src/components/*"],
       "$ui-components/*": ["./src/ui-components/*"],
       "$global-services/*": ["./src/global-services/*"],
-      "$services/*": ["./src/services/*"]
+      "$services/*": ["./src/services/*"],
+      "$editor/*": ["./src/editor/*"]
     }
   },
   "include": ["src"],
