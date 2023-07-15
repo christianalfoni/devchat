@@ -263,6 +263,11 @@ const EDITOR_NODES = [
   CodeHighlightNode,
 ];
 
+const codeTokenProperty = "text-blue-500";
+const codeTokenVariable = "text-purple-500";
+const codeTokenAttr = "text-purple-500";
+const codeTokenSelector = "text-yellow-500";
+
 const theme: EditorThemeClasses = {
   quote:
     "text-xl italic font-semibold text-gray-900 dark:text-white p-4 my-4 border-l-4 border-gray-300 bg-gray-50 dark:border-gray-500 dark:bg-gray-800",
@@ -270,39 +275,44 @@ const theme: EditorThemeClasses = {
     h1: "text-xl",
   },
   list: {
-    ul: "list-disc ml-4",
+    ul: "list-disc ml-6",
+    nested: {
+      listitem: "list-none",
+    },
+    ol: "list-decimal ml-6",
   },
+  code: "relative block bg-gray-50 rounded-md py-2 pr-2 pl-10 before:content-[attr(data-gutter)] before:absolute before:left-0 before:top-0 before:py-2 before:text-right before:w-8 before:text-gray-400",
   codeHighlight: {
-    atrule: "PlaygroundEditorTheme__tokenAttr",
-    attr: "PlaygroundEditorTheme__tokenAttr",
-    boolean: "text-blue-500",
-    builtin: "PlaygroundEditorTheme__tokenSelector",
+    atrule: codeTokenAttr,
+    attr: codeTokenAttr,
+    boolean: codeTokenProperty,
+    builtin: codeTokenSelector,
     cdata: "PlaygroundEditorTheme__tokenComment",
-    char: "PlaygroundEditorTheme__tokenSelector",
+    char: codeTokenSelector,
     class: "PlaygroundEditorTheme__tokenFunction",
     "class-name": "PlaygroundEditorTheme__tokenFunction",
     comment: "PlaygroundEditorTheme__tokenComment",
-    constant: "PlaygroundEditorTheme__tokenProperty",
-    deleted: "PlaygroundEditorTheme__tokenProperty",
+    constant: codeTokenProperty,
+    deleted: codeTokenProperty,
     doctype: "PlaygroundEditorTheme__tokenComment",
     entity: "PlaygroundEditorTheme__tokenOperator",
     function: "PlaygroundEditorTheme__tokenFunction",
-    important: "PlaygroundEditorTheme__tokenVariable",
-    inserted: "PlaygroundEditorTheme__tokenSelector",
-    keyword: "text-blue-500",
-    namespace: "PlaygroundEditorTheme__tokenVariable",
+    important: codeTokenVariable,
+    inserted: codeTokenSelector,
+    keyword: codeTokenAttr,
+    namespace: codeTokenVariable,
     number: "PlaygroundEditorTheme__tokenProperty",
     operator: "PlaygroundEditorTheme__tokenOperator",
     prolog: "PlaygroundEditorTheme__tokenComment",
-    property: "PlaygroundEditorTheme__tokenProperty",
+    property: codeTokenProperty,
     punctuation: "PlaygroundEditorTheme__tokenPunctuation",
-    regex: "PlaygroundEditorTheme__tokenVariable",
-    selector: "PlaygroundEditorTheme__tokenSelector",
-    string: "PlaygroundEditorTheme__tokenSelector",
-    symbol: "PlaygroundEditorTheme__tokenProperty",
-    tag: "PlaygroundEditorTheme__tokenProperty",
+    regex: codeTokenVariable,
+    selector: codeTokenSelector,
+    string: codeTokenSelector,
+    symbol: codeTokenProperty,
+    tag: codeTokenProperty,
     url: "PlaygroundEditorTheme__tokenOperator",
-    variable: "text-blue-500",
+    variable: codeTokenVariable,
   },
 };
 
